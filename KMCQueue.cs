@@ -17,7 +17,7 @@ namespace KMCStacksAndQueuesFinal
         #region properties
         private KMCNode Front { get; set; }     // pointer to front of the queue
         private KMCNode Back { get; set; }      // pointer to back of the queue
-        public int Count { get; private set; }  // number of the nodes in queue
+        public int Count { get; set; }  // number of the nodes in queue
         #endregion properties
 
         #region constructor
