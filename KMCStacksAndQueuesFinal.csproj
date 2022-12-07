@@ -52,7 +52,6 @@
     <Compile Include="FormStacksAndQueues.Designer.cs">
       <DependentUpon>FormStacksAndQueues.cs</DependentUpon>
     </Compile>
-    <Compile Include="KMCLinkedList.cs" />
     <Compile Include="KMCNode.cs" />
     <Compile Include="KMCQueue.cs" />
     <Compile Include="KMCRandomNumberGenerator.cs" />

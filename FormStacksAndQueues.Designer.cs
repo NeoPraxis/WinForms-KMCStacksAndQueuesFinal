@@ -69,7 +69,7 @@
             this.labelQueue.AutoSize = true;
             this.labelQueue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelQueue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelQueue.Location = new System.Drawing.Point(135, 52);
+            this.labelQueue.Location = new System.Drawing.Point(242, 52);
             this.labelQueue.Name = "labelQueue";
             this.labelQueue.Size = new System.Drawing.Size(129, 27);
             this.labelQueue.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.labelStack.AutoSize = true;
             this.labelStack.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelStack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelStack.Location = new System.Drawing.Point(873, 52);
+            this.labelStack.Location = new System.Drawing.Point(861, 52);
             this.labelStack.Name = "labelStack";
             this.labelStack.Size = new System.Drawing.Size(119, 27);
             this.labelStack.TabIndex = 3;
@@ -89,7 +89,7 @@
             // buttonEnqueue
             // 
             this.buttonEnqueue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEnqueue.Location = new System.Drawing.Point(20, 80);
+            this.buttonEnqueue.Location = new System.Drawing.Point(24, 80);
             this.buttonEnqueue.Name = "buttonEnqueue";
             this.buttonEnqueue.Size = new System.Drawing.Size(92, 61);
             this.buttonEnqueue.TabIndex = 4;
@@ -100,7 +100,7 @@
             // buttonDequeue
             // 
             this.buttonDequeue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDequeue.Location = new System.Drawing.Point(20, 147);
+            this.buttonDequeue.Location = new System.Drawing.Point(24, 147);
             this.buttonDequeue.Name = "buttonDequeue";
             this.buttonDequeue.Size = new System.Drawing.Size(92, 61);
             this.buttonDequeue.TabIndex = 5;
@@ -111,7 +111,7 @@
             // buttonClearQueue
             // 
             this.buttonClearQueue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonClearQueue.Location = new System.Drawing.Point(20, 323);
+            this.buttonClearQueue.Location = new System.Drawing.Point(24, 323);
             this.buttonClearQueue.Name = "buttonClearQueue";
             this.buttonClearQueue.Size = new System.Drawing.Size(92, 61);
             this.buttonClearQueue.TabIndex = 6;
@@ -128,6 +128,7 @@
             this.buttonClearStack.TabIndex = 9;
             this.buttonClearStack.Text = "Clear All";
             this.buttonClearStack.UseVisualStyleBackColor = false;
+            this.buttonClearStack.Click += new System.EventHandler(this.buttonClearStack_Click);
             // 
             // buttonPop
             // 
@@ -138,6 +139,7 @@
             this.buttonPop.TabIndex = 8;
             this.buttonPop.Text = "Delete";
             this.buttonPop.UseVisualStyleBackColor = false;
+            this.buttonPop.Click += new System.EventHandler(this.buttonPop_Click);
             // 
             // buttonPush
             // 
@@ -148,11 +150,12 @@
             this.buttonPush.TabIndex = 7;
             this.buttonPush.Text = "Add";
             this.buttonPush.UseVisualStyleBackColor = false;
+            this.buttonPush.Click += new System.EventHandler(this.buttonPush_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(512, 80);
+            this.button1.Location = new System.Drawing.Point(505, 80);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 61);
             this.button1.TabIndex = 10;
@@ -162,7 +165,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(628, 80);
+            this.button2.Location = new System.Drawing.Point(628, 256);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 61);
             this.button2.TabIndex = 11;
@@ -172,7 +175,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(512, 147);
+            this.button3.Location = new System.Drawing.Point(505, 147);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 61);
             this.button3.TabIndex = 12;
@@ -182,7 +185,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(628, 147);
+            this.button4.Location = new System.Drawing.Point(628, 323);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 61);
             this.button4.TabIndex = 13;
@@ -211,7 +214,6 @@
             this.Controls.Add(this.listBoxQueue);
             this.Name = "FormStacksAndQueues";
             this.Text = "Stacks and Queues";
-            this.Load += new System.EventHandler(this.FormStacksAndQueues_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

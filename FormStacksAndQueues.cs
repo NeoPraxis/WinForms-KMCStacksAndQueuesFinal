@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KMCStacksAndQueuesFinal
@@ -14,42 +7,67 @@ namespace KMCStacksAndQueuesFinal
     {
         Random random = new Random();
 
-        KMCQueue waitingQueue = new KMCQueue();     // queue of waiting customers
+        KMCQueue numberQueue = new KMCQueue();     // queue of waiting customers
+
+        KMCStack numberStack = new KMCStack();
 
         public FormStacksAndQueues()
         {
             InitializeComponent();
         }
+        #region queue
 
         /// <summary>
-        /// When the user clicks the enqueue button, create a customer id and
+        /// When the user clicks the enqueue button, create a random number and
         /// add it to the queue
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void buttonEnqueue_Click(object sender, EventArgs e)
         {
-            // generate the new customer
+            // generate the new random number
             int randomNumber = random.Next(1, 1001);
             String numberString = randomNumber.ToString();
-            waitingQueue.Enqueue(numberString);
+            numberQueue.Enqueue(numberString);
 
             // display the results
-            DisplayQueue(waitingQueue, listBoxQueue);
+            DisplayQueue(numberQueue, listBoxQueue);
         }
 
         private void buttonDequeue_Click(object sender, EventArgs e)
         {
 
-            // generate the new customer
-            //int randomNumber = random.Next(1, 1001);
-            //String numberString = randomNumber.ToString();
-            waitingQueue.Dequeue();
+            // Dequeue the front most value of the queue
+            numberQueue.Dequeue();
 
             // display the results
-            DisplayQueue(waitingQueue, listBoxQueue);
+            DisplayQueue(numberQueue, listBoxQueue);
         }
 
+        /// <summary>
+        /// This button clears the queue completely
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonClearQueue_Click(object sender, EventArgs e)
+        {
+
+            while (numberQueue != null)
+            {
+                if (numberQueue.Count > 0)
+                {
+                    numberQueue.Dequeue();
+                    listBoxQueue.Items.Clear();
+                }
+                else
+                {
+                    listBoxQueue.Items.Clear();
+                    break;
+                }
+
+            }
+            MessageBox.Show("Cleared Queue");
+        }
         /// <summary>
         /// This routine displays the desired queue in the desired listbox
         /// </summary>
@@ -66,7 +84,7 @@ namespace KMCStacksAndQueuesFinal
             // display the content of the queue
             foreach (String randomNumber in theQueue)
             {
-                
+
                 theListBox.Items.Add(randomNumber);
             }
 
@@ -78,28 +96,69 @@ namespace KMCStacksAndQueuesFinal
             theListBox.Items.Add(String.Format("Count = {0}", theQueue.Count));
         }
 
-        private void FormStacksAndQueues_Load(object sender, EventArgs e)
+        private void DisplayStack(KMCStack theStack, ListBox theListBox)
         {
+            // clear the queue
+            theListBox.Items.Clear();
 
+            // display header
+            theListBox.Items.Add("Top Of the Stack");
+
+            // display the content of the queue
+            foreach (String randomNumber in theStack)
+            {
+                theListBox.Items.Add(randomNumber);
+            }
+
+            // display footer
+            theListBox.Items.Add("Bottom of the Stack");
+
+            // display stats
+            theListBox.Items.Add(String.Empty);
+            theListBox.Items.Add(String.Format("Count = {0}", theStack.Count));
         }
 
-        private void buttonClearQueue_Click(object sender, EventArgs e)
+        #endregion queue
+
+        #region stack
+
+        private void buttonPush_Click(object sender, EventArgs e)
+        {
+            // generate the new random number
+            int randomNumber = random.Next(1, 1001);
+            String numberString = randomNumber.ToString();
+            numberStack.Push(numberString);
+
+            // display the results
+            DisplayStack(numberStack, listBoxStack);
+        }
+
+        private void buttonPop_Click(object sender, EventArgs e)
+        {
+            numberStack.Pop();
+            DisplayStack(numberStack, listBoxStack);
+        }
+
+        private void buttonClearStack_Click(object sender, EventArgs e)
         {
 
-            while (waitingQueue != null)
+            while (numberStack != null)
             {
-                if (waitingQueue.Count > 0)
+                if (numberStack.Count > 0)
                 {
-                    waitingQueue.Dequeue();
-                    listBoxQueue.Items.Clear();
+                    numberStack.Pop();
+                    listBoxStack.Items.Clear();
                 }
                 else
                 {
+                    listBoxStack.Items.Clear();
                     break;
                 }
-                
+
             }
-            MessageBox.Show("Cleared Queue");
+            MessageBox.Show("Cleared Stack");
         }
+        #endregion stack
+
     }
 }

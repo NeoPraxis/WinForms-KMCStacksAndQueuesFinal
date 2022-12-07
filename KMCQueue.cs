@@ -8,7 +8,6 @@ namespace KMCStacksAndQueuesFinal
 {
     internal class KMCQueue : IEnumerable<String>
     {
-
         #region enum
         #endregion enum
 

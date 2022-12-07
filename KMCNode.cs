@@ -17,8 +17,12 @@ namespace KMCStacksAndQueuesFinal
         #endregion data
 
         #region properties
-        public String Number { get; set; }      // number that is being used
-        public KMCNode Next { get; set; }    // pointer to the next customer
+        public String Number { get; set; }      // number that is being used in queue
+
+        
+        public KMCNode Next { get; set; }    // pointer to the next number in the queue
+
+        
         #endregion properties
 
         #region constructor
@@ -41,8 +45,8 @@ namespace KMCStacksAndQueuesFinal
         /// <returns></returns>
         public override string ToString()
         {
-        return String.Format("Number = {0}, Next = {1}", this.Number,
-            this.Next == null ? "end of queue" : this.Next.Number);
+        return String.Format("{0}", this.Number,
+            this.Next == null ? "" : this.Next.Number);
         }
         #endregion methods
     }

@@ -1,5 +1,6 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -7,19 +8,16 @@ using System.Threading.Tasks;
 
 namespace KMCStacksAndQueuesFinal
 {
-    internal class KMCStack
+    internal class KMCStack : IEnumerable<String>
     {
         #region data
         #endregion data
 
         #region properties
-        Random random = new Random();
+        public int Count { get; set; }      // number of cards in the current stack
 
-        //int randomNumberToAdd;
-        //private Random randomNumber
-        //int randomNumber = random.Next(1, 1001);
+        private KMCNode Top { get; set; }
 
-        public int Count { get; private set; }      // number of cards in the current stack
         #endregion properties
 
         #region constructor
@@ -57,42 +55,24 @@ namespace KMCStacksAndQueuesFinal
         /// This routine will place the new card at the top of the stack
         /// </summary>
         /// <param name="oneCard"></param>
-        public void Push()
+        public void Push(String number)
         {
+            KMCNode selectedNumber = new KMCNode(number);
             // push the playing card onto the top of the stack
             if (IsEmpty())
             {
                 // stack is empty
-                Top = oneCard;
-                oneCard.Next = null;
+                Top = selectedNumber;
+                selectedNumber.Next = null;
             }
             else
             {
                 // place on top
-                oneCard.Next = Top;
-                Top = oneCard;
+                selectedNumber.Next = Top;
+                Top = selectedNumber;
             }
             // increment the count of cards
             Count++;
-        }
-
-
-        /// <summary>
-        /// This routine returns the top card from the stack without removing it
-        /// </summary>
-        /// <returns>Top card on the stack if it exists</returns>
-        public KMCPLayingCard Peep()
-        {
-            if (!IsEmpty())
-            {
-                return null;
-            }
-            else
-            {
-                return Top;
-            }
-
-
         }
 
         /// <summary>
@@ -101,27 +81,25 @@ namespace KMCStacksAndQueuesFinal
         /// </summary>
         /// <returns>Top playing card from the stack if it exists,
         /// otherwise returns null</returns>
-        public KMCPLayingCard Pop()
+        public String Pop()
         {
-            KMCPLayingCard oneCard = null;
+            String item;
 
-            if (!IsEmpty())
+            if (IsEmpty())
             {
-                // remove the card
-                oneCard = Top;
+                item = null;
+            }
+            else
+            {
+                // queue is not empty, return first item
+                item = Top.Number;
                 Top = Top.Next;
-
-                // breaks all links to the top card
-                oneCard.Next = null;
-
-                // decrement the count
                 Count--;
-
-
             }
             // return the playing card
-            return oneCard;
+            return item;
         }
+
         #endregion methods
 
         #region enumerable
@@ -132,25 +110,26 @@ namespace KMCStacksAndQueuesFinal
         /// a time, returning each item to the calling routine.
         /// </summary>
         /// <returns>Playing card each time</returns>
-        public IEnumerator<KMCPLayingCard> GetEnumerator()
+        /// 
+
+        public IEnumerator<String> GetEnumerator()
         {
             // create a node to walk down the list
-            KMCPLayingCard current = Top;
+            KMCNode current = Top;
 
             //
             while (current != null)
             {
                 // return current playing card
-                yield return current;
+                yield return current.ToString();
                 current = current.Next;
             }
         }
         // microsoft code behind the scenes
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            return GetEnumerator();
         }
         #endregion enumeruable
     }
 }
-*/
