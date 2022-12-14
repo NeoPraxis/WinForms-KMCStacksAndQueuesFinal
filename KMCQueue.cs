@@ -1,4 +1,19 @@
-﻿using System;
+﻿/* ********************************************************************
+ * Projct:      Stacks and Queues Final
+ * File:        KMCQueue.cs
+ * Language:    C#
+ * 
+ * Desription:  This class represents a Queue data structure
+ *              
+ * College:     Husson University
+ * Course:      IT 325
+ * 
+ * Edit History:
+ * Ver   Who Date       Notes
+ * ----- --- ---------- -----------------------------------------------
+ * 0.1   KMC 12/02/2022 - initial writing
+ * *******************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

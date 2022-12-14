@@ -1,4 +1,19 @@
-﻿using System;
+﻿/* ********************************************************************
+ * Projct:      Stacks and Queues Final
+ * File:        KMCNode.cs
+ * Language:    C#
+ * 
+ * Desription:  This class is a node that uses pointers for linked lists
+ *              
+ * College:     Husson University
+ * Course:      IT 325
+ * 
+ * Edit History:
+ * Ver   Who Date       Notes
+ * ----- --- ---------- -----------------------------------------------
+ * 0.1   KMC 12/02/2022 - initial writing
+ * *******************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +34,6 @@ namespace KMCStacksAndQueuesFinal
         #region properties
         public String Number { get; set; }      // number that is being used in queue
 
-        
         public KMCNode Next { get; set; }    // pointer to the next number in the queue
 
         

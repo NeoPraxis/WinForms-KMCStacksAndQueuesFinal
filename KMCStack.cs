@@ -1,4 +1,19 @@
-﻿using System;
+﻿/* ********************************************************************
+ * Projct:      Stacks and Queues Final
+ * File:        KMCStack.cs
+ * Language:    C#
+ * 
+ * Desription:  This class represents a stack data structure
+ *              
+ * College:     Husson University
+ * Course:      IT 325
+ * 
+ * Edit History:
+ * Ver   Who Date       Notes
+ * ----- --- ---------- -----------------------------------------------
+ * 0.1   KMC 12/02/2022 - initial writing
+ * *******************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -91,12 +106,12 @@ namespace KMCStacksAndQueuesFinal
             }
             else
             {
-                // queue is not empty, return first item
+                // stack is not empty, return top item
                 item = Top.Number;
                 Top = Top.Next;
                 Count--;
             }
-            // return the playing card
+            // return the item (number)
             return item;
         }
 
